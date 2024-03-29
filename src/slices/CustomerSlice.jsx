@@ -10,8 +10,8 @@ export const customerSlice = createSlice({
       state.push(action.payload);
     },
     deleteCustomer(state, action) {
-      const delIndex = action.payload;
-      return state.filter((index) => index !== delIndex);
+      const customerToDelete = action.payload;
+      return state.filter((customer) => customer !== customerToDelete);
     },
   },
 });

@@ -6,8 +6,8 @@ export default function CustomerView() {
   const customer = useSelector((state) => state.customer);
   const dispatch = useDispatch();
 
-  const delHandler = (index) => {
-    dispatch(deleteCustomer(index));
+  const delHandler = (customer) => {
+    dispatch(deleteCustomer(customer));
   };
 
   return (
@@ -16,7 +16,7 @@ export default function CustomerView() {
       <ul style={{ listStyle: "none" }}>
         {customer.map((element, index) => (
           <li key={index}>
-            {element} <button onClick={() => delHandler(index)}>del</button>
+            {element} <button onClick={() => delHandler(element)}>del</button>
           </li>
         ))}
       </ul>
