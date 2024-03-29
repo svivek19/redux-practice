@@ -1,12 +1,18 @@
 import React from "react";
 import CustomerAdd from "./CustomerAdd";
+import { Provider } from "react-redux";
+import { store } from "./store";
+import CustomerView from "./CustomerView";
 
 const App = () => {
   return (
-    <div>
-      <h1>React Redux Example</h1>
-      <CustomerAdd />
-    </div>
+    <Provider store={store}>
+      <>
+        <h1>React Redux Example</h1>
+        <CustomerAdd />
+        <CustomerView />
+      </>
+    </Provider>
   );
 };
 
