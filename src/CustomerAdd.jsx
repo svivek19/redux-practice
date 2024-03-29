@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import CustomerView from "./CustomerView";
 
 export default function CustomerAdd() {
   const [input, setInput] = useState("");
@@ -7,6 +8,7 @@ export default function CustomerAdd() {
   const handleAdd = () => {
     if (input) {
       setCustomer((prev) => [...prev, input]);
+      setInput("");
     }
   };
 
@@ -19,6 +21,10 @@ export default function CustomerAdd() {
         onChange={(e) => setInput(e.target.value)}
       />
       <button onClick={handleAdd}>Add</button>
+
+      <div>
+        <CustomerView customer={customer} />
+      </div>
     </div>
   );
 }
