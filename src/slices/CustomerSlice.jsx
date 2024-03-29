@@ -9,8 +9,12 @@ export const customerSlice = createSlice({
     addCustomer(state, action) {
       state.push(action.payload);
     },
+    deleteCustomer(state, action) {
+      const delIndex = action.payload;
+      return state.filter((index) => index !== delIndex);
+    },
   },
 });
 
-export const { addCustomer } = customerSlice.actions;
+export const { addCustomer, deleteCustomer } = customerSlice.actions;
 export default customerSlice.reducer;
