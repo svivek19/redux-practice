@@ -1,12 +1,14 @@
 import React, { useState } from "react";
+import { addCustomer as addCustomerAction } from "./slices/CustomerSlice";
+import { useDispatch } from "react-redux";
 
 export default function CustomerAdd() {
   const [input, setInput] = useState("");
-  const [customer, setCustomer] = useState([]);
+  const dispatch = useDispatch();
 
   const handleAdd = () => {
     if (input) {
-      setCustomer((prev) => [...prev, input]);
+      dispatch(addCustomerAction(input));
       setInput("");
     }
   };
